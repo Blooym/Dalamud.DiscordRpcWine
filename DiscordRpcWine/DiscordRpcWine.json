@@ -1,0 +1,13 @@
+{
+  "Author": "Blooym",
+  "Name": "Discord RPC Wine",
+  "InternalName": "DiscordRpcWine",
+  "Punchline": "Fixes any plugin that communicates via Discord RPC by running a bridge in the same process as FFXIV. [WINE Exclusive]",
+  "Description": "Fixes any plugin that communicates with Discord by running a bridge in the same process as FFXIV.\n\nPlease note this plugin will not load outside of a WINE environment.",
+  "RepoUrl": "https://github.com/Blooym/Dalamud.DiscordRpcWine",
+  "Tags": [
+    "linux",
+    "wine",
+    "macos"
+  ]
+}

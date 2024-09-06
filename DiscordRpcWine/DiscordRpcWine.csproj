@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Dalamud.NET.Sdk/10.0.0">
+  <!-- Project Configuration -->
+  <PropertyGroup>
+    <AssemblyName>DiscordRpcWine</AssemblyName>
+    <Version>0.0.1.0</Version>
+    <PackageProjectUrl>https://github.com/Blooym/Dalamud.DiscordRpcWine</PackageProjectUrl>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OutputPath>bin\x64\$(Configuration)\</OutputPath>
+    <ProduceReferenceAssembly>false</ProduceReferenceAssembly>
+    <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+  </PropertyGroup>
+  <Target Name="DownloadWineDiscordIpcBridge" AfterTargets="AfterBuild">
+      <DownloadFile
+          SourceUrl="https://github.com/0e4ef622/wine-discord-ipc-bridge/releases/latest/download/winediscordipcbridge.exe"
+          DestinationFolder="$(OutDir)binaries" 
+          DestinationFileName="WineRPCBridge.exe" 
+          Condition="!Exists('$(OutDir)binaries\WineRPCBridge.exe')"
+      />
+      <DownloadFile
+          SourceUrl="https://raw.githubusercontent.com/0e4ef622/wine-discord-ipc-bridge/master/LICENSE"
+          DestinationFolder="$(OutDir)binaries"
+          DestinationFileName="WineRPCBridgeLICENSE.txt"
+          Condition="!Exists('$(OutDir)binaries\WineRPCBridgeLICENSE.txt')"
+      />
+  </Target>
+</Project>
