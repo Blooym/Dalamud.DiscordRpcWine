@@ -9,16 +9,12 @@ namespace DiscordRpcWine
 {
     internal sealed class DiscordRpcWinePlugin : IDalamudPlugin
     {
-        private DirectoryInfo RPC_BRIDGE_PATH => new(Path.Combine(this.pluginInterface.AssemblyLocation.Directory!.FullName, "binaries", "WineRPCBridge.exe"));
-
-        // Dalamud Services.
         private readonly IDalamudPluginInterface pluginInterface;
         private readonly IPluginLog pluginLog;
         private readonly Process bridgeProcess;
 
-        /// <summary>
-        ///     The plugin's main entry point.
-        /// </summary>
+        private DirectoryInfo RPC_BRIDGE_PATH => new(Path.Combine(this.pluginInterface.AssemblyLocation.Directory!.FullName, "binaries", "WineRPCBridge.exe"));
+
         public DiscordRpcWinePlugin(IDalamudPluginInterface pluginInterface, IPluginLog pluginLog)
         {
             this.pluginInterface = pluginInterface;
